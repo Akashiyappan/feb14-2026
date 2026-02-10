@@ -10,10 +10,10 @@
 <main class="main-container">
   <!-- Landing Section -->
   <section class="landing-section" @fadeIn>
-    <h1 class="main-title">Happy Valentine's Day, My Love ❤️</h1>
-    <p class="subtitle">You make every day feel like Valentine's Day</p>
+    <h1 class="main-title">{{ MAIN_TITLE }}</h1>
+    <p class="subtitle">{{ LANDING_SUBTITLE }}</p>
     <div class="scroll-indicator">
-      <span>Scroll to discover more</span>
+      <span>{{ SCROLL_INDICATOR_TEXT }}</span>
       <div class="arrow-down"></div>
     </div>
   </section>
@@ -21,7 +21,7 @@
   <!-- Love Message Section -->
   <section class="love-message-section" @slideIn>
     <div class="message-container">
-      <h2 class="section-title">A Letter to You</h2>
+      <h2 class="section-title">{{ SECTION_TITLES.loveMessage }}</h2>
       <div class="message-content" @typewriter>
         <pre>{{ displayedMessage() }}<span class="cursor">|</span></pre>
       </div>
@@ -30,7 +30,7 @@
 
   <!-- Memories Gallery Section -->
   <section class="memories-section" @slideIn>
-    <h2 class="section-title">Our Beautiful Memories</h2>
+    <h2 class="section-title">{{ SECTION_TITLES.memories }}</h2>
     <div class="gallery-grid">
       @for (memory of memories; track memory.url) {
         <div class="gallery-item">
@@ -45,8 +45,8 @@
 
   <!-- Time Together Section -->
   <section class="countdown-section" @slideIn>
-    <h2 class="section-title">Our Love Journey</h2>
-    <p class="subtitle">Together Since June 15, 2020</p>
+    <h2 class="section-title">{{ SECTION_TITLES.countdown }}</h2>
+    <p class="subtitle">Together Since {{ LOVE_START_DATE_DISPLAY }}</p>
     <div class="countdown-container">
       <div class="countdown-item">
         <div class="countdown-number">{{ years() }}</div>
@@ -62,25 +62,20 @@
         <div class="countdown-number">{{ days() }}</div>
         <div class="countdown-label">Days</div>
       </div>
-      <div class="countdown-divider">:</div>
-      <div class="countdown-item">
-        <div class="countdown-number">{{ hours() }}</div>
-        <div class="countdown-label">Hours</div>
-      </div>
     </div>
   </section>
 
   <!-- Surprise Button Section -->
   <section class="surprise-section" @slideIn>
-    <h2 class="section-title">I Have a Surprise for You...</h2>
+    <h2 class="section-title">{{ SECTION_TITLES.surprise }}</h2>
     <button class="surprise-button" (click)="revealSurprise()" [@heartBeat]="heartBeatState">
-      Click Me! 💝
+      {{ SURPRISE_BUTTON_TEXT }}
     </button>
   </section>
 
   <!-- Footer -->
   <footer class="footer">
-    <p>Made with ❤️ for the most amazing person in the world</p>
+    <p>{{ FOOTER_TEXT }}</p>
   </footer>
 </main>
 
@@ -89,14 +84,12 @@
   <div class="surprise-modal" @fadeIn (click)="closeSurprise()">
     <div class="surprise-content" (click)="$event.stopPropagation()">
       <button class="close-button" (click)="closeSurprise()">✕</button>
-      <h2 class="surprise-title">You Are My Everything! ✨</h2>
+      <h2 class="surprise-title">{{ SURPRISE_CONTENT.title }}</h2>
       <p class="surprise-message">
-        Every day with you is a blessing. Your smile lights up my world,
-        your laughter is my favorite melody, and your love is my greatest treasure.
-        I promise to love you today, tomorrow, and forever.
+        {{ SURPRISE_CONTENT.message }}
       </p>
       <div class="surprise-heart">💗</div>
-      <p class="surprise-footer">I love you more than words can say!</p>
+      <p class="surprise-footer">{{ SURPRISE_CONTENT.footer }}</p>
     </div>
 
     <!-- Floating Hearts Animation -->

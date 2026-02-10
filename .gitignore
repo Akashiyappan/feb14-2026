@@ -1,0 +1,30 @@
+# Node modules
+node_modules/
+
+# Build outputs
+dist/
+build/
+
+# Angular
+.angular/
+
+# IDE settings
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

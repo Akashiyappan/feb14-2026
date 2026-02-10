@@ -1,6 +1,20 @@
 import { Component, signal, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
+import {
+  LOVE_MESSAGE,
+  LOVE_START_DATE,
+  LOVE_START_DATE_DISPLAY,
+  MEMORIES,
+  MAIN_TITLE,
+  LANDING_SUBTITLE,
+  SECTION_TITLES,
+  SURPRISE_CONTENT,
+  FOOTER_TEXT,
+  TYPEWRITER_SPEED,
+  SURPRISE_BUTTON_TEXT,
+  SCROLL_INDICATOR_TEXT
+} from './app.constants';
 
 @Component({
   selector: 'app-root',
@@ -41,8 +55,18 @@ import { trigger, state, style, transition, animate, keyframes } from '@angular/
   ]
 })
 export class App implements OnInit, OnDestroy {
+  // Expose constants for template
+  protected readonly MAIN_TITLE = MAIN_TITLE;
+  protected readonly LANDING_SUBTITLE = LANDING_SUBTITLE;
+  protected readonly SCROLL_INDICATOR_TEXT = SCROLL_INDICATOR_TEXT;
+  protected readonly SECTION_TITLES = SECTION_TITLES;
+  protected readonly LOVE_START_DATE_DISPLAY = LOVE_START_DATE_DISPLAY;
+  protected readonly SURPRISE_BUTTON_TEXT = SURPRISE_BUTTON_TEXT;
+  protected readonly SURPRISE_CONTENT = SURPRISE_CONTENT;
+  protected readonly FOOTER_TEXT = FOOTER_TEXT;
+
   // Love message with typewriter effect
-  protected fullMessage = "My Dearest Love,\n\nEvery moment with you feels like a beautiful dream I never want to wake up from. You are the sunshine that brightens my darkest days, the laughter that fills my heart with joy, and the love that makes every day worth living.\n\nYour smile is my favorite sight, your voice is my favorite sound, and your happiness is my favorite feeling. I am so grateful for every second we spend together, every memory we create, and every tomorrow we'll share.\n\nYou are not just my girlfriend, you are my best friend, my confidant, and my soulmate. Thank you for being you, for loving me, and for making my world infinitely better just by being in it.\n\nForever yours,\nWith all my love ❤️";
+  protected fullMessage = LOVE_MESSAGE;
   protected displayedMessage = signal('');
   protected messageIndex = 0;
   protected typingInterval: any;
@@ -53,17 +77,10 @@ export class App implements OnInit, OnDestroy {
   protected days = signal(0);
   protected hours = signal(0);
   protected countdownInterval: any;
-  protected loveStartDate = new Date('2020-06-15T00:00:00');
+  protected loveStartDate = LOVE_START_DATE;
 
   // Memories gallery
-  protected memories = [
-    { url: 'https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=400', caption: 'Our First Date' },
-    { url: 'https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=400', caption: 'Perfect Moments' },
-    { url: 'https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=400', caption: 'Together Forever' },
-    { url: 'https://images.unsplash.com/photo-1522673607217-4cc91e35621e?w=400', caption: 'Beautiful Memories' },
-    { url: 'https://images.unsplash.com/photo-1474552226712-ac0f0961a954?w=400', caption: 'Adventures Together' },
-    { url: 'https://images.unsplash.com/photo-1522075782449-e45a34f1ddfb?w=400', caption: 'Endless Love' }
-  ];
+  protected memories = MEMORIES;
 
   // Surprise feature
   protected showSurprise = signal(false);
@@ -92,7 +109,7 @@ export class App implements OnInit, OnDestroy {
       } else {
         clearInterval(this.typingInterval);
       }
-    }, 30); // Speed of typing (30ms per character)
+    }, TYPEWRITER_SPEED);
   }
 
   private startCountdown() {
