@@ -20,27 +20,33 @@ export const LOVE_START_DATE_DISPLAY = 'June 15, 2020';
 export const MEMORIES = [
   {
     url: 'https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=400',
-    caption: 'Our First Date'
+    caption: 'Our First Date',
+    description: 'The moment everything began. I still remember how nervous I was and how your smile made all my worries disappear.'
   },
   {
     url: 'https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=400',
-    caption: 'Perfect Moments'
+    caption: 'Perfect Moments',
+    description: 'Every moment with you feels perfect, whether we\'re laughing, talking, or just being together in comfortable silence.'
   },
   {
     url: 'https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=400',
-    caption: 'Together Forever'
+    caption: 'Together Forever',
+    description: 'Hand in hand, heart to heart. You complete me in ways I never thought possible. Forever with you is all I want.'
   },
   {
     url: '/ring.png',
-    caption: 'Beautiful Memories'
+    caption: 'Beautiful Memories',
+    description: 'The precious moments we\'ve shared have shaped us into who we are. Each memory is a treasure I hold dear in my heart.'
   },
   {
     url: 'https://images.unsplash.com/photo-1474552226712-ac0f0961a954?w=400',
-    caption: 'Adventures Together'
+    caption: 'Adventures Together',
+    description: 'Exploring the world with you by my side. Every adventure is an opportunity to create new memories and fall deeper in love.'
   },
   {
     url: 'https://images.unsplash.com/photo-1522075782449-e45a34f1ddfb?w=400',
-    caption: 'Endless Love'
+    caption: 'Endless Love',
+    description: 'Our love story is my favorite story. With you, every chapter is better than the last, and I can\'t wait for what\'s next.'
   }
 ];
 
