@@ -33,10 +33,11 @@
     <h2 class="section-title">{{ SECTION_TITLES.memories }}</h2>
     <div class="gallery-grid">
       @for (memory of memories; track memory.url) {
-        <div class="gallery-item">
-          <img [src]="memory.url" [alt]="memory.caption" />
+        <div class="gallery-item" (click)="openModal(memory)">
+          <img [src]="memory.url" [alt]="memory.caption" loading="lazy" />
           <div class="gallery-overlay">
-            <p class="gallery-caption">{{ memory.caption }}</p>
+            <h3 class="gallery-caption">{{ memory.caption }}</h3>
+            <p class="gallery-description">{{ memory.description }}</p>
           </div>
         </div>
       }
@@ -79,15 +80,27 @@
   </footer>
 </main>
 
+<!-- Image Modal -->
+@if (selectedMemory()) {
+  <div class="modal" @fadeIn (click)="closeModal()">
+    <button class="modal-close" (click)="closeModal()">✕</button>
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <img [src]="selectedMemory()!.url" [alt]="selectedMemory()!.caption" />
+      <div class="modal-info">
+        <h3>{{ selectedMemory()!.caption }}</h3>
+        <p>{{ selectedMemory()!.description }}</p>
+      </div>
+    </div>
+  </div>
+}
+
 <!-- Surprise Modal -->
 @if (showSurprise()) {
   <div class="surprise-modal" @fadeIn (click)="closeSurprise()">
     <div class="surprise-content" (click)="$event.stopPropagation()">
       <button class="close-button" (click)="closeSurprise()">✕</button>
       <h2 class="surprise-title">{{ SURPRISE_CONTENT.title }}</h2>
-      <p class="surprise-message">
-        {{ SURPRISE_CONTENT.message }}
-      </p>
+      <p class="surprise-message">{{ SURPRISE_CONTENT.message }}</p>
       <div class="surprise-heart">💗</div>
       <p class="surprise-footer">{{ SURPRISE_CONTENT.footer }}</p>
     </div>
