@@ -16,6 +16,12 @@ import {
   SCROLL_INDICATOR_TEXT
 } from './app.constants';
 
+interface Memory {
+  url: string;
+  caption: string;
+  description: string;
+}
+
 @Component({
   selector: 'app-root',
   imports: [CommonModule],
@@ -81,6 +87,7 @@ export class App implements OnInit, OnDestroy {
 
   // Memories gallery
   protected memories = MEMORIES;
+  protected selectedMemory = signal<Memory | null>(null);
 
   // Surprise feature
   protected showSurprise = signal(false);
@@ -149,6 +156,16 @@ export class App implements OnInit, OnDestroy {
     this.months.set(months);
     this.days.set(days);
     this.hours.set(hours);
+  }
+
+  protected openModal(memory: Memory) {
+    this.selectedMemory.set(memory);
+    document.body.style.overflow = 'hidden';
+  }
+
+  protected closeModal() {
+    this.selectedMemory.set(null);
+    document.body.style.overflow = 'auto';
   }
 
   protected revealSurprise() {
